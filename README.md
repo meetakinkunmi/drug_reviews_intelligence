@@ -48,7 +48,7 @@ This project narrows the general problem to **patient reviews of prescription dr
 - How effective do patients say their medication is, and does that line up with their rating?
 - Which side effects are mentioned most, and which ones go with unhappy patients?
 - Which conditions and drugs are reviewed most, and how are they rated?
-- Do people's words agree with their star ratings?
+- Do people's words agree with their drug ratings?
 - What themes recur across the benefits, side effects and comments?
 
 ## Data

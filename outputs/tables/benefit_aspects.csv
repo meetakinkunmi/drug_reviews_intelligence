@@ -1,0 +1,15 @@
+aspect,reviews,share_pct,mean_rating,mean_sentiment
+pain_relief,759,18.55,7.25,-0.35
+skin_clearing,676,16.52,7.34,0.08
+symptom_control,558,13.64,7.67,-0.12
+sleep_improvement,434,10.61,7.63,-0.06
+infection_cleared,377,9.21,7.25,-0.11
+anxiety_relief,337,8.24,7.75,-0.21
+energy_focus,325,7.94,8.18,0.26
+mood_improvement,299,7.31,7.79,0.03
+headache_relief,196,4.79,7.79,-0.21
+digestive_relief,147,3.59,7.84,-0.2
+allergy_relief,135,3.3,7.48,-0.07
+blood_pressure_control,132,3.23,7.21,-0.32
+cholesterol_control,77,1.88,7.06,-0.27
+weight_loss,74,1.81,8.2,-0.01

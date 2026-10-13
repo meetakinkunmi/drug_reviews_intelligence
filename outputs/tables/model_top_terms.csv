@@ -1,0 +1,46 @@
+class,term,weight
+negative,severe,1.997
+negative,the side,1.727
+negative,worse,1.612
+negative,extreme,1.61
+negative,horrible,1.466
+negative,told,1.311
+negative,never,1.3
+negative,doctor,1.29
+negative,discontinued,1.273
+negative,was,1.268
+negative,couldn,1.236
+negative,no benefits,1.201
+negative,benefits,1.132
+negative,had to,1.092
+negative,vomiting,1.08
+neutral,quite,1.197
+neutral,however,1.052
+neutral,qd,1.045
+neutral,less,1.003
+neutral,tinnitus,0.969
+neutral,it did,0.961
+neutral,migraines,0.956
+neutral,edema,0.94
+neutral,the acne,0.917
+neutral,for,0.87
+neutral,help,0.854
+neutral,feeling,0.85
+neutral,became,0.845
+neutral,but,0.836
+neutral,was used,0.832
+positive,no side,1.603
+positive,has,1.533
+positive,years,1.386
+positive,take,1.315
+positive,in the,1.215
+positive,once,1.213
+positive,the morning,1.166
+positive,the only,1.166
+positive,within,1.137
+positive,any side,1.128
+positive,worked,1.053
+positive,life,1.011
+positive,without,0.998
+positive,can,0.975
+positive,able to,0.967

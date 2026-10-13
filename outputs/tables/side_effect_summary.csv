@@ -1,0 +1,6 @@
+sideEffects,reviews,mean_rating,mean_sentiment,pct_positive,share_pct
+No Side Effects,1183,8.66,0.02,89.01,28.91
+Mild Side Effects,1328,8.13,-0.02,87.12,32.45
+Moderate Side Effects,842,6.18,-0.19,54.51,20.58
+Severe Side Effects,486,3.57,-0.42,18.11,11.88
+Extremely Severe Side Effects,253,1.65,-0.57,4.74,6.18

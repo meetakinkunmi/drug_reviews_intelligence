@@ -1,0 +1,16 @@
+condition,drug,reviews,mean_rating
+depression,prozac,36,7.5
+acne,accutane,31,7.81
+depression,lexapro,29,6.31
+acne,differin,28,6.89
+depression,wellbutrin,28,7.5
+depression,effexor,27,6.37
+depression,zoloft,26,7.31
+depression,paxil,23,5.7
+depression,effexor-xr,21,5.71
+insomnia,ambien,21,7.29
+hair loss,propecia,19,6.37
+depression,wellbutrin-xl,19,8.37
+high cholesterol,lipitor,18,6.33
+smoking cessation,chantix,18,6.72
+hypothyroidism,synthroid,18,8.33
