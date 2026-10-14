@@ -1,6 +1,6 @@
 # Drug Review Intelligence (UCI Drug Review)
 
-An end-to-end NLP project that turns patient drug reviews into insight: sentiment, side effects, benefits, topics and effectiveness patterns, served through a REST API and an interactive dashboard.
+An end-to-end NLP project that turns patient drug reviews into insight: sentiment, side effects, benefits, topics and effectiveness patterns, served through a FastAPI and an interactive dashboard.
 
 > **Disclaimer:** This project analyses self-reported patient reviews for educational and analytical purposes. It is **not** medical advice and must not be used to make treatment decisions.
 
@@ -55,8 +55,8 @@ This project narrows the general problem to **patient reviews of prescription dr
 
 | Item | Detail |
 |---|---|
-| Dataset | UCI **Drug Review Dataset (Drugs.com)** |
-| Format | A single `.csv` file placed in `data/raw/` |
+| Dataset | UCI **Drug Review Dataset** |
+| Format | A single `.csv` file placed in `data/raw/` (not committed) |
 | Size | Over 4,000 reviews |
 | Granularity | One row per patient review |
 
@@ -202,15 +202,7 @@ Plus a supporting objective: **train an explainable sentiment classifier** and e
 
 ## Deploy
 - **Docker (all services):** `docker compose up --build` → dashboard :8501, API :8000 (trainer runs first).
-- **Streamlit Community Cloud (free):** push repo to GitHub, point the app to `dashboard/app.py`. Commit `data/raw/*.tsv` (or a sample); the dashboard runs the pipeline on first start.
-
-**Notes for real deployments**
-
-- The trainer re-runs the pipeline on every `docker compose up`. For production, train once and ship the saved model.
-- The API has **no authentication or rate limiting**. Put it behind a reverse proxy or API gateway, add an API key or OAuth, and restrict CORS before exposing it to the internet.
-- Add a `.dockerignore` (for `.venv/`, `outputs/`, `data/`) to keep the image small.
-- Pin library versions in `requirements.txt`. A `.joblib` model saved with one scikit-learn version may not load in another.
-- Typical hosting options: a container platform (Cloud Run, Azure Container Apps, AWS ECS/App Runner), Streamlit Community Cloud for the dashboard only, or a small VM running `docker compose`.
+- **Streamlit Community Cloud (free):** push repo to GitHub, point the app to `dashboard/app.py`. 
 
 ## API reference
 
@@ -262,29 +254,9 @@ Rating-based labels are derived from the 1 to 10 rating: **negative** (1 to 4), 
 
 **Takeaways**
 
-- The model roughly **doubles the baseline** and is stable across folds.
+- The model roughly **doubles the baseline** and is stable across the 5-CV folds.
 - **Positive and negative are separated well; neutral is weak.** Ratings of 5 and 6 don't produce distinctive language, and neutral is only about 10% of the data.
 - VADER and ratings disagree often: only about 48% of high-rated reviews have positive-sounding text, because patients describe side effects and symptoms even when a drug worked. About 1,550 reviews have a rating and text that point in opposite directions.
-
-## Tips for sentiment analysis
-
-Lessons from building this project that apply to most sentiment tasks:
-
-1. **Know what your label really means.** Here the target is the *star rating*, not what the text expresses. Rating and text can disagree (sarcasm, mis-clicks, side-effect descriptions on a successful treatment), which caps achievable accuracy.
-2. **Always compare against a baseline.** A dummy model that predicts the majority class scored 0.269 macro F1. Without that yardstick, 74% accuracy looks better than it is.
-3. **Use macro F1, not just accuracy, on imbalanced data.** Accuracy hides the neutral class failing. Macro F1 treats every class equally.
-4. **Clean differently for different tools.** Rule-based tools like VADER use capitals and punctuation ("GREAT!!!"), so keep them. For topic models and keyword counts, lowercase, strip punctuation and remove stop words.
-5. **Remove domain stop words.** Words like "drug", "medication" and "take" appear everywhere and drown out real themes.
-6. **Handle negation.** "No nausea" is not a side effect. Look back a few words inside the same clause, and stop at punctuation and words like "but".
-7. **Split large texts by section.** Scoring benefits and side effects separately shows that the same review can be positive about results and negative about tolerability.
-8. **Treat lexicons as starting points.** Read sample reviews and mismatches, then add and remove patterns. Over-broad stems (such as `numb\w*` matching "number") cause false hits.
-9. **Start simple and explainable.** TF-IDF + Logistic Regression lets you read the coefficients and verify the model learned sensible words. Add complexity only if it earns its keep.
-10. **Handle the neutral class deliberately.** Options: widen or redefine the neutral band, merge neutral into the other classes, or switch to two classes.
-11. **Fit on training data only.** Keep the vectorizer inside a scikit-learn `Pipeline`, so the test set never leaks into the vocabulary. Use `stratify` when splitting, and fix `random_state` for repeatable results.
-12. **Check cross-validation spread.** A small standard deviation (here 0.012) shows the score is not a lucky split.
-13. **Try a pretrained transformer for context.** Models like RoBERTa understand phrases such as "not bad at all", but a model trained on tweets may transfer imperfectly to medical language. Evaluate it on your own data, and cache its output because it is slow on CPU.
-14. **Read the errors.** The confusion matrix and the mismatched reviews teach more than any single score.
-15. **Treat predicted probabilities with care.** Low-confidence predictions, and any "neutral" prediction from this model, deserve caution.
 
 ## Limitations
 
@@ -296,15 +268,6 @@ Lessons from building this project that apply to most sentiment tasks:
 - No dosage, age, sex or comorbidity information, so results cannot be adjusted for those factors.
 - The API has no authentication.
 - Correlations and averages describe patterns in reviews. They do not show that a drug works.
-
-## Roadmap
-
-- Compare the optional transformer against the TF-IDF model on a hand-labelled sample
-- Redefine or remove the neutral class and re-evaluate
-- Replace keyword lexicons with a trained named-entity or aspect-based model
-- Add API tests with FastAPI's `TestClient` and pipeline smoke tests
-- Add authentication, rate limiting and CI (tests on every push)
-- Pin dependency versions and add a `.dockerignore`
 
 ## Acknowledgements
 
