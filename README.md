@@ -21,9 +21,7 @@ An end-to-end NLP project that turns patient drug reviews into insight: sentimen
 11. [Results](#results)
 12. [Tips for sentiment analysis](#tips-for-sentiment-analysis)
 13. [Limitations](#limitations)
-14. [Roadmap](#roadmap)
-15. [Testing](#testing)
-16. [Acknowledgements](#acknowledgements)
+14. [Acknowledgements](#acknowledgements)
 
 ---
 
