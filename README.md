@@ -16,11 +16,10 @@ An end-to-end NLP project that turns patient drug reviews into insight: sentimen
 6. [Project structure](#project-structure)
 7. [Setup](#setup)
 8. [Run locally](#run-locally)
-9. [Deploy with Docker](#deploy-with-docker)
-10. [API reference](#api-reference)
-11. [Results](#results)
-12. [Limitations](#limitations)
-13. [Acknowledgements](#acknowledgements)
+9. [API reference](#api-reference)
+10. [Results](#results)
+11. [Limitations](#limitations)
+12. [Acknowledgements](#acknowledgements)
 
 ---
 
