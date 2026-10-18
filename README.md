@@ -19,9 +19,8 @@ An end-to-end NLP project that turns patient drug reviews into insight: sentimen
 9. [Deploy with Docker](#deploy-with-docker)
 10. [API reference](#api-reference)
 11. [Results](#results)
-12. [Tips for sentiment analysis](#tips-for-sentiment-analysis)
-13. [Limitations](#limitations)
-14. [Acknowledgements](#acknowledgements)
+12. [Limitations](#limitations)
+13. [Acknowledgements](#acknowledgements)
 
 ---
 
