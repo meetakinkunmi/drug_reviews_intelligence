@@ -1,5 +1,7 @@
 # Drug Review Intelligence (UCI Drug Review)
 
+## Dashboard url - https://tinyurl.com/drug-review-intelligence
+
 An end-to-end NLP project that turns patient drug reviews into insight: sentiment, side effects, benefits, topics and effectiveness patterns, served through a FastAPI and an interactive dashboard.
 
 > **Disclaimer:** This project analyses self-reported patient reviews for educational and analytical purposes. It is **not** medical advice and must not be used to make treatment decisions.
